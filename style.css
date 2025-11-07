@@ -2,6 +2,12 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
+:root {
+  --lavender-light: #e6e6fa;
+  --lavender-medium: #b19cd9;
+  --lavender-dark: #8b7ab8;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -9,6 +15,15 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  background:
+    repeating-linear-gradient(
+      135deg,
+      #faf8ff,
+      #faf8ff 18px,
+      #ebebf5 18px,
+      #ebebf5 19px
+    );
+  background-size: 200px 200px;
 }
 
 html {
@@ -52,14 +67,17 @@ a {
 }
 
 a:hover {
-  color: grey;
+  color: var(--lavender-dark);
   text-decoration: underline;
   text-underline-offset: 1rem;
-  text-decoration-color: rgb(181, 181, 181);
+  text-decoration-color: var(--lavender-medium);
 }
 
 .logo {
   font-size: 2rem;
+  color: black;
+  font-weight: 600;
+
 }
 
 .logo:hover {
@@ -146,6 +164,29 @@ a:hover {
   transform: none;
 }
 
+/* DIAGONAL LINES */
+.diagonal-lines {
+  position: relative;
+}
+
+.diagonal-lines::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 20px,
+    rgba(139, 122, 184, 0.1) 20px,
+    rgba(139, 122, 184, 0.1) 22px
+  );
+  z-index: -1;
+  pointer-events: none;
+}
+
 /* SECTIONS */
 
 section {
@@ -168,12 +209,20 @@ section {
   gap: 5rem;
   height: 80vh;
 }
-
 .section__pic-container {
   display: flex;
   height: 400px;
   width: 400px;
   margin: auto 0;
+}
+
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  filter: brightness(1.02) contrast(1.06);
+  mix-blend-mode: multiply;
 }
 
 .section__text {
@@ -197,6 +246,12 @@ section {
 .title {
   font-size: 3rem;
   text-align: center;
+  color: #2c2c2c;
+  transition: transform 0.35s ease, text-shadow 0.35s ease;
+}
+
+.title:hover {
+  transform: translateY(-3px);
 }
 
 #socials-container {
@@ -231,7 +286,7 @@ section {
 
 .btn-color-1,
 .btn-color-2 {
-  border: rgb(53, 53, 53) 0.1rem solid;
+  border: var(--lavender-dark) 0.1rem solid;
 }
 
 .btn-color-1:hover,
@@ -241,20 +296,24 @@ section {
 
 .btn-color-1,
 .btn-color-2:hover {
-  background: rgb(53, 53, 53);
+  background: var(--lavender-dark);
   color: white;
+  border-color: var(--lavender-dark);
 }
 
 .btn-color-1:hover {
-  background: rgb(0, 0, 0);
+  background: var(--lavender-medium);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(177, 156, 217, 0.3);
 }
 
 .btn-color-2 {
   background: none;
+  color: var(--lavender-dark);
 }
 
 .btn-color-2:hover {
-  border: rgb(255, 255, 255) 0.1rem solid;
+  border: var(--lavender-dark) 0.1rem solid;
 }
 
 .btn-container {
@@ -301,6 +360,7 @@ section {
   border: rgb(53, 53, 53) 0.1rem solid;
   border-color: rgb(163, 163, 163);
   text-align: center;
+  transition: all 0.3s ease;
 }
 
 .section-container {
@@ -315,7 +375,6 @@ section {
 }
 
 /* EXPERIENCE SECTION */
-
 #experience {
   position: relative;
 }
@@ -335,49 +394,76 @@ section {
 
 .article-container {
   display: flex;
-  text-align: initial;
-  flex-wrap: wrap;
-  flex-direction: row;
-  gap: 2.5rem;
-  justify-content: space-around;
+  flex-direction: column;
+  gap: 25px;
 }
 
-article {
+.article-container article {
   display: flex;
-  width: 10rem;
-  justify-content: space-around;
-  gap: 0.5rem;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 10px;
 }
 
-article .icon {
-  cursor: default;
+.article-container article img.icon {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
 }
 
-/* PROJECTS SECTION */
-
-#projects {
-  position: relative;
+.article-container article div {
+  flex: 1;
 }
 
-.color-container {
-  border-color: rgb(163, 163, 163);
-  background: rgb(250, 250, 250);
+.details-container {
+  width: 100%;
 }
 
+
+/* PROJECTS SECTION FIXED SIZING */
+#projects .experience-details-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#projects .details-container {
+  max-width: 900px;        /* Reduce width so it doesn't stretch across the page */
+  width: 100%;
+  margin: auto;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Image */
 .project-img {
-  border-radius: 2rem;
-  width: 90%;
-  height: 90%;
+  width: 70%;              /* Smaller image */
+  max-width: 600px;
+  border-radius: 1rem;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
 }
 
+/* Title and paragraph tighter spacing */
 .project-title {
-  margin: 1rem;
-  color: black;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
 }
 
-.project-btn {
-  color: black;
-  border-color: rgb(163, 163, 163);
+#projects p {
+  max-width: 700px;
+  margin: 0.5rem auto 1rem auto;
+  line-height: 1.45;
+  font-size: 1rem;
+}
+
+/* Center GitHub button and reduce spacing */
+#projects .btn-container {
+  margin-top: 0.5rem;
 }
 
 /* CONTACT */
