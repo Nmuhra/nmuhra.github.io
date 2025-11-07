@@ -2,11 +2,6 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
-:root {
-  --lavender-light: #e6e6fa;
-  --lavender-medium: #b19cd9;
-  --lavender-dark: #8b7ab8;
-}
 
 * {
   margin: 0;
@@ -67,17 +62,14 @@ a {
 }
 
 a:hover {
-  color: var(--lavender-dark);
   text-decoration: underline;
   text-underline-offset: 1rem;
-  text-decoration-color: var(--lavender-medium);
 }
 
 .logo {
   font-size: 2rem;
   color: black;
   font-weight: 600;
-
 }
 
 .logo:hover {
@@ -108,7 +100,7 @@ a:hover {
   width: 100%;
   height: 2px;
   background-color: black;
-  transition: all 0.3 ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .menu-links {
@@ -119,7 +111,7 @@ a:hover {
   width: fit-content;
   max-height: 0;
   overflow: hidden;
-  transition: all 0.3 ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .menu-links a {
@@ -129,7 +121,7 @@ a:hover {
   font-size: 1.5rem;
   color: black;
   text-decoration: none;
-  transition: all 0.3 ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .menu-links li {
@@ -154,37 +146,7 @@ a:hover {
 
 .hamburger-icon span:first-child {
   transform: none;
-}
-
-.hamburger-icon span:first-child {
   opacity: 1;
-}
-
-.hamburger-icon span:first-child {
-  transform: none;
-}
-
-/* DIAGONAL LINES */
-.diagonal-lines {
-  position: relative;
-}
-
-.diagonal-lines::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 20px,
-    rgba(139, 122, 184, 0.1) 20px,
-    rgba(139, 122, 184, 0.1) 22px
-  );
-  z-index: -1;
-  pointer-events: none;
 }
 
 /* SECTIONS */
@@ -209,6 +171,7 @@ section {
   gap: 5rem;
   height: 80vh;
 }
+
 .section__pic-container {
   display: flex;
   height: 400px;
@@ -246,11 +209,6 @@ section {
   font-size: 3rem;
   text-align: center;
   color: #2c2c2c;
-  transition: transform 0.35s ease, text-shadow 0.35s ease;
-}
-
-.title:hover {
-  transform: translateY(-3px);
 }
 
 #socials-container {
@@ -285,7 +243,7 @@ section {
 
 .btn-color-1,
 .btn-color-2 {
-  border: var(--lavender-dark) 0.1rem solid;
+  border: rgb(53, 53, 53) 0.1rem solid;
 }
 
 .btn-color-1:hover,
@@ -295,28 +253,18 @@ section {
 
 .btn-color-1,
 .btn-color-2:hover {
-  background: var(--lavender-dark);
+  background: rgb(53, 53, 53);
   color: white;
-  border-color: var(--lavender-dark);
-}
-
-.btn-color-1:hover {
-  background: var(--lavender-medium);
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(177, 156, 217, 0.3);
+  border-color: rgb(53, 53, 53);
 }
 
 .btn-color-2 {
   background: none;
-  color: var(--lavender-dark);
+  color: rgb(53, 53, 53);
 }
 
 .btn-color-2:hover {
-  border: var(--lavender-dark) 0.1rem solid;
-}
-
-.btn-container {
-  gap: 1rem;
+  border: rgb(53, 53, 53) 0.1rem solid;
 }
 
 /* ABOUT SECTION */
@@ -329,6 +277,9 @@ section {
   gap: 2rem;
   margin-bottom: 2rem;
   margin-top: 2rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .about-details-container {
@@ -356,33 +307,34 @@ section {
   flex: 1;
   background: white;
   border-radius: 2rem;
-  border: rgb(53, 53, 53) 0.1rem solid;
-  border-color: rgb(163, 163, 163);
+  border: rgb(53, 53, 53) 1px solid;
+  border-color: var(--lavender-light);
   text-align: center;
-  transition: all 0.3s ease;
 }
 
 .section-container {
   gap: 4rem;
   height: 80%;
-}
-
-.section__pic-container {
-  height: 400px;
-  width: 400px;
-  margin: auto 0;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* EXPERIENCE SECTION */
+
 #experience {
   position: relative;
 }
 
+.experience-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 .experience-sub-title {
-  color: rgb(85, 85, 85);
+  color: rgb(53, 53, 53);
   font-weight: 600;
-  font-size: 1.75rem;
-  margin-bottom: 2rem;
+  font-size: 1.4rem;
+  margin-bottom: 1.2rem;
 }
 
 .experience-details-container {
@@ -391,23 +343,80 @@ section {
   flex-direction: column;
 }
 
+.subsection-title {
+  color: rgb(53, 53, 53);
+  font-weight: 600;
+  font-size: 1.75rem;
+  margin: 2rem 0 1rem 0;
+  text-align: center;
+}
+
+.experience-item {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgb(230, 230, 230);
+  text-align: left;
+}
+
+.experience-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.job-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: rgb(53, 53, 53);
+}
+
+.company {
+  font-size: 1rem;
+  color: rgb(85, 85, 85);
+  margin-top: 0.3rem;
+}
+
+.date {
+  font-size: 0.9rem;
+  color: rgb(130, 130, 130);
+  white-space: nowrap;
+}
+
+.description {
+  font-size: 0.95rem;
+  color: rgb(100, 100, 100);
+  line-height: 1.6;
+  margin-top: 0.8rem;
+  text-align: left;
+}
+
 .article-container {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 15px;
 }
 
 .article-container article {
   display: flex;
   align-items: flex-start;
-  gap: 20px;
-  padding: 20px;
+  gap: 12px;
+  padding: 12px;
   border-radius: 10px;
+  text-align: left;
 }
 
 .article-container article img.icon {
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
 }
 
@@ -415,12 +424,22 @@ section {
   flex: 1;
 }
 
+.article-container article h3 {
+  font-size: 0.95rem;
+  color: rgb(53, 53, 53);
+}
+
+.article-container article p {
+  font-size: 0.85rem;
+  color: rgb(130, 130, 130);
+}
+
 .details-container {
   width: 100%;
 }
 
+/* PROJECTS SECTION */
 
-/* PROJECTS SECTION FIXED SIZING */
 #projects .experience-details-container {
   display: flex;
   justify-content: center;
@@ -428,7 +447,7 @@ section {
 }
 
 #projects .details-container {
-  max-width: 900px;        /* Reduce width so it doesn't stretch across the page */
+  max-width: 900px;
   width: 100%;
   margin: auto;
   padding: 2.5rem;
@@ -437,17 +456,16 @@ section {
   align-items: center;
 }
 
-/* Image */
 .project-img {
-  width: 70%;              /* Smaller image */
+  width: 70%;
   max-width: 600px;
   border-radius: 1rem;
   object-fit: cover;
   display: block;
   margin: 0 auto;
+  border: 2px solid var(--lavender-light);
 }
 
-/* Title and paragraph tighter spacing */
 .project-title {
   margin-top: 1rem;
   margin-bottom: 0.5rem;
@@ -460,7 +478,6 @@ section {
   font-size: 1rem;
 }
 
-/* Center GitHub button and reduce spacing */
 #projects .btn-container {
   margin-top: 0.5rem;
 }
@@ -479,10 +496,11 @@ section {
   justify-content: center;
   border-radius: 2rem;
   border: rgb(53, 53, 53) 0.1rem solid;
-  border-color: rgb(163, 163, 163);
-  background: (250, 250, 250);
+  border-color: var(--lavender-light);
+  background: white;
   margin: 2rem auto;
   padding: 0.5rem;
+  max-width: 800px;
 }
 
 .contact-info-container {

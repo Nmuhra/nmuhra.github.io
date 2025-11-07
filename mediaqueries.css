@@ -47,57 +47,316 @@
   }
 }
 
+@media screen and (max-width: 768px) {
+  section {
+    margin: 0 3%;
+    padding-top: 3vh;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .subsection-title {
+    font-size: 1.5rem;
+  }
+
+  .experience-sub-title {
+    font-size: 1.3rem;
+  }
+
+  /* Experience items on mobile */
+  .experience-item {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .experience-header {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .date {
+    font-size: 0.85rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  /* Skills cards stack on mobile */
+  .about-containers {
+    flex-direction: column;
+  }
+
+  .details-container {
+    width: 100%;
+    padding: 1.2rem;
+  }
+
+  /* More compact skill items on mobile */
+  .article-container article {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .article-container article img.icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .article-container article h3 {
+    font-size: 0.9rem;
+  }
+
+  .article-container article p {
+    font-size: 0.8rem;
+  }
+
+  /* Project section adjustments */
+  #projects .details-container {
+    padding: 1.5rem;
+  }
+
+  .project-img {
+    width: 85%;
+  }
+
+  #projects p {
+    margin: 0.8rem 1rem;
+    font-size: 0.95rem;
+  }
+}
+
 @media screen and (max-width: 600px) {
   #contact,
   footer {
     height: 40vh;
   }
+
   #profile {
     height: 83vh;
     margin-bottom: 0;
+    gap: 3rem;
   }
+
   article {
     font-size: 1rem;
   }
+
   footer nav {
     height: fit-content;
     margin-bottom: 2rem;
   }
+
   .about-containers,
   .contact-info-upper-container,
   .btn-container {
     flex-wrap: wrap;
   }
+
   .contact-info-container {
     margin: 0;
+    flex-direction: column;
+    gap: 0.3rem;
   }
-  .contact-info-container p,
+
+  .contact-info-container p {
+    font-size: 0.9rem;
+  }
+
+  .contact-info-container a {
+    word-break: break-word;
+  }
+
   .nav-links li a {
     font-size: 1rem;
   }
+
   .experience-sub-title {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
   }
+
+  .subsection-title {
+    font-size: 1.4rem;
+    margin: 1.5rem 0 0.8rem 0;
+  }
+
   .logo {
     font-size: 1.5rem;
   }
+
   .nav-links {
     flex-direction: column;
     gap: 0.5rem;
     text-align: center;
   }
+
   .section__pic-container {
     width: auto;
     height: 46vw;
     justify-content: center;
+    max-width: 300px;
   }
+
   .section__text__p2 {
     font-size: 1.25rem;
   }
+
   .title {
     font-size: 2rem;
+    margin-bottom: 1.5rem;
   }
+
   .text-container {
     text-align: justify;
+  }
+
+  .text-container p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  /* Experience section mobile */
+  section {
+    margin: 0 4%;
+    padding-top: 2vh;
+  }
+
+  .experience-item {
+    margin-bottom: 1.2rem;
+    padding-bottom: 1.2rem;
+  }
+
+  .job-title {
+    font-size: 1rem;
+  }
+
+  .company {
+    font-size: 0.9rem;
+  }
+
+  .description {
+    font-size: 0.85rem;
+    margin-top: 0.6rem;
+  }
+
+  .details-container {
+    padding: 1rem;
+  }
+
+  /* Skill items even more compact on small phones */
+  .article-container {
+    gap: 10px;
+  }
+
+  .article-container article {
+    padding: 8px;
+  }
+
+  .article-container article img.icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .article-container article h3 {
+    font-size: 0.85rem;
+  }
+
+  .article-container article p {
+    font-size: 0.75rem;
+  }
+
+  /* Buttons */
+  .btn {
+    padding: 0.8rem;
+    width: 7rem;
+    font-size: 0.9rem;
+  }
+
+  .btn-container {
+    gap: 0.8rem;
+  }
+
+  /* Project section */
+  .project-img {
+    width: 95%;
+  }
+
+  #projects .details-container {
+    padding: 1.2rem;
+  }
+
+  #projects p {
+    margin: 0.5rem 0.5rem 0.8rem 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .project-title {
+    font-size: 1.3rem;
+  }
+
+  /* Contact icons */
+  .icon {
+    height: 1.8rem;
+  }
+
+  .email-icon {
+    height: 2rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .subsection-title {
+    font-size: 1.3rem;
+  }
+
+  .section__text__p2 {
+    font-size: 1.1rem;
+  }
+
+  section {
+    margin: 0 3%;
+  }
+
+  .details-container {
+    padding: 0.8rem;
+  }
+
+  .experience-item {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .job-title {
+    font-size: 0.95rem;
+  }
+
+  .company {
+    font-size: 0.85rem;
+  }
+
+  .date {
+    font-size: 0.8rem;
+  }
+
+  .description {
+    font-size: 0.8rem;
+  }
+
+  .btn {
+    padding: 0.7rem;
+    width: 6.5rem;
+    font-size: 0.85rem;
+  }
+
+  .contact-info-container p {
+    font-size: 0.85rem;
   }
 }
