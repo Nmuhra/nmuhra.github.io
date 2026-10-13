@@ -16,7 +16,7 @@
       property="og:description"
       content="Software developer, Assistant Lecturer and BScHons Computer Science student at the University of Pretoria."
     />
-    <meta property="og:image" content="./assets/og-image.jpg" />
+    <meta property="og:image" content="./assets/hero.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -34,13 +34,7 @@
       href="./assets/favicon-dark.png"
       media="(prefers-color-scheme: dark)"
     />
-    <link
-      rel="preload"
-      as="image"
-      href="./assets/gallery-snow.webp"
-      imagesrcset="./assets/gallery-snow-600.webp 600w, ./assets/gallery-snow.webp 960w"
-      imagesizes="(max-width: 600px) 200px, (max-width: 900px) 280px, 420px"
-    />
+    <link rel="preload" as="image" href="./assets/hero.jpg" />
     <script>
       document.documentElement.classList.add("js");
       (function () {
@@ -111,7 +105,7 @@
 
     <main id="top">
       <!-- HERO -->
-      <section id="profile" class="hero">
+      <section class="hero">
         <div class="hero__bg" aria-hidden="true"></div>
 
         <div class="hero__inner container">
@@ -196,15 +190,10 @@
               <div class="portrait__tilt">
                 <div class="portrait__img">
                   <img
-                    src="./assets/gallery-snow.webp"
-                    srcset="
-                      ./assets/gallery-snow-600.webp 600w,
-                      ./assets/gallery-snow.webp     960w
-                    "
-                    sizes="(max-width: 600px) 200px, (max-width: 900px) 280px, 420px"
+                    src="./assets/hero.jpg"
                     alt="Nabegh Muhra giving a peace sign on a snowy mountain slope under a blue sky"
-                    width="960"
-                    height="1280"
+                    width="1069"
+                    height="1474"
                     fetchpriority="high"
                   />
                 </div>
@@ -280,7 +269,7 @@
               with AI, from machine learning to agentic systems.
             </p>
             <p class="about__text reveal">
-              Apart from Software Development, I work as an Assistant Lecturer 
+              Apart from Software Development, I work as an Assistant Lecturer
               at the University of Pretoria, I also do private tutoring, and I
               coach Brazilian Jiu-Jitsu occasionally. I'm fluent in English and
               Arabic, and outside of code you'll find me on the mats, hiking or
@@ -456,7 +445,6 @@
               <div class="timeline__body">
                 <h3 class="role">High School Diploma (NCSCOS)</h3>
                 <p class="org">North American International School, Pretoria</p>
-
               </div>
             </li>
           </ol>
@@ -871,9 +859,7 @@
     </main>
 
     <footer class="footer container">
-      <div class="footer__left">
-        <p>&copy; <span id="year">2026</span> Nabegh Muhra</p>
-      </div>
+      <p>&copy; <span id="year">2026</span> Nabegh Muhra</p>
       <a href="#top" class="footer__top">
         Back to top
         <svg viewBox="0 0 24 24" aria-hidden="true">

@@ -222,8 +222,7 @@
     border-radius: var(--radius-sm);
   }
 
-  .gallery__title,
-  .gallery__item--feature .gallery__title {
+  .gallery__title {
     font-size: 0.9rem;
   }
 
@@ -231,11 +230,10 @@
     font-size: 0.62rem;
   }
 
-  .gallery__item:not(.gallery__item--feature) .gallery__sub {
+  .gallery__item .gallery__sub {
     display: none;
   }
 
-  .gallery__item--tall .gallery__caption,
   .gallery__item--wide .gallery__caption {
     padding: 0.7rem 0.8rem;
   }

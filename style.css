@@ -417,7 +417,6 @@ button {
 
 .btn-secondary {
   color: var(--ink);
-  background: transparent;
   border-color: var(--line-strong);
 }
 
@@ -463,16 +462,28 @@ button {
   font-weight: 500;
   line-height: 0.92;
   letter-spacing: -0.06em;
+  background: linear-gradient(180deg, var(--ink) 30%, var(--ink-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .hero__title-accent {
-  color: var(--muted);
+  background: linear-gradient(
+    100deg,
+    var(--accent) 10%,
+    var(--accent-hover) 55%,
+    color-mix(in srgb, var(--accent) 55%, var(--ink-2)) 95%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-bottom: 0.08em;
 }
 
 .hero__role {
   margin-top: 1.75rem;
   font-size: 1.15rem;
-  font-weight: 400;
   color: var(--ink);
   letter-spacing: -0.01em;
 }
@@ -643,7 +654,6 @@ button {
 /* MARQUEE */
 
 .marquee {
-  position: relative;
   overflow: hidden;
   padding: 1.4rem 0;
   border-top: 1px solid var(--line);
@@ -789,10 +799,6 @@ button {
   align-items: center;
 }
 
-.about__pic {
-  position: relative;
-}
-
 .about__frame {
   position: relative;
   aspect-ratio: 1;
@@ -861,7 +867,6 @@ button {
 
 .stat__value small {
   font-size: 0.95rem;
-  font-weight: 500;
   letter-spacing: -0.01em;
   color: var(--muted);
 }
@@ -960,10 +965,7 @@ button {
   font-weight: 500;
   letter-spacing: -0.025em;
   line-height: 1.3;
-  transition: color 200ms ease;
 }
-
-
 
 .org {
   color: var(--ink-2);
@@ -1306,7 +1308,6 @@ button {
   grid-template-columns: repeat(3, 1fr);
   gap: 0.6rem;
   margin-top: 1.25rem;
-  list-style: none;
 }
 
 .shots__btn {
@@ -1400,17 +1401,8 @@ button {
   isolation: isolate;
 }
 
-.gallery__item--feature {
-  grid-column: span 2;
-  grid-row: span 2;
-}
-
 .gallery__item--wide {
   grid-column: span 2;
-}
-
-.gallery__item--tall {
-  grid-row: span 2;
 }
 
 .gallery__btn {
@@ -1469,10 +1461,6 @@ button {
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.3;
-}
-
-.gallery__item--feature .gallery__title {
-  font-size: 1.35rem;
 }
 
 .gallery__sub {
@@ -1557,8 +1545,6 @@ button {
 .lightbox__img {
   max-width: 100%;
   max-height: calc(100dvh - 9rem);
-  width: auto;
-  height: auto;
   border-radius: 14px;
   box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.8);
 }
@@ -1803,12 +1789,6 @@ button {
   border-top: 1px solid var(--line);
   font-size: 0.875rem;
   color: var(--muted);
-}
-
-.footer__left {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
 }
 
 .footer__top {

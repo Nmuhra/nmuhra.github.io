@@ -103,21 +103,19 @@ const sections = navLinks
   .map((link) => document.querySelector(link.getAttribute("href")))
   .filter(Boolean);
 
-if ("IntersectionObserver" in window) {
-  const sectionObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        const id = `#${entry.target.id}`;
-        navLinks.forEach((link) =>
-          link.classList.toggle("active", link.getAttribute("href") === id)
-        );
-      });
-    },
-    { rootMargin: "-45% 0px -50% 0px" }
-  );
-  sections.forEach((section) => sectionObserver.observe(section));
-}
+const sectionObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const id = `#${entry.target.id}`;
+      navLinks.forEach((link) =>
+        link.classList.toggle("active", link.getAttribute("href") === id)
+      );
+    });
+  },
+  { rootMargin: "-45% 0px -50% 0px" }
+);
+sections.forEach((section) => sectionObserver.observe(section));
 
 /* REVEAL ON SCROLL (staggered within each group) */
 
@@ -142,7 +140,7 @@ function finishReveal(el) {
   el.classList.add("visible");
 }
 
-if ("IntersectionObserver" in window && !reduceMotion.matches) {
+if (!reduceMotion.matches) {
   const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -258,11 +256,7 @@ if (net) {
     if (live && !reduceMotion.matches) timer = setInterval(forwardPass, cycle * 1000);
   };
 
-  if ("IntersectionObserver" in window) {
-    new IntersectionObserver(([entry]) => setLive(entry.isIntersecting)).observe(net);
-  } else {
-    setLive(true);
-  }
+  new IntersectionObserver(([entry]) => setLive(entry.isIntersecting)).observe(net);
 }
 
 /* PORTRAIT TILT */
