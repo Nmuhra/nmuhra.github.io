@@ -1,500 +1,908 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nabegh</title>
+    <title>Nabegh Muhra | Software Developer</title>
+    <meta
+      name="description"
+      content="Nabegh Muhra: software developer, Assistant Lecturer and BScHons Computer Science student at the University of Pretoria."
+    />
+    <meta name="theme-color" content="#09090b" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Nabegh Muhra | Software Developer" />
+    <meta
+      property="og:description"
+      content="Software developer, Assistant Lecturer and BScHons Computer Science student at the University of Pretoria."
+    />
+    <meta property="og:image" content="./assets/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&family=Geist+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
-    <link rel="icon" type="image/png" href="./assets/arrow.png" />
+    <link rel="icon" type="image/png" href="./assets/favicon-light.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="./assets/favicon-dark.png"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="./assets/gallery-snow.webp"
+      imagesrcset="./assets/gallery-snow-600.webp 600w, ./assets/gallery-snow.webp 960w"
+      imagesizes="(max-width: 600px) 200px, (max-width: 900px) 280px, 420px"
+    />
+    <script>
+      document.documentElement.classList.add("js");
+      (function () {
+        var theme;
+        try {
+          theme = localStorage.getItem("theme");
+        } catch (e) {}
+        if (theme !== "light" && theme !== "dark") {
+          theme = window.matchMedia("(prefers-color-scheme: light)").matches
+            ? "light"
+            : "dark";
+        }
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
   </head>
   <body>
-    <nav id="desktop-nav">
-      <div class="logo">Nabegh Muhra</div>
-      <div>
-        <ul class="nav-links">
+    <a class="skip-link" href="#about">Skip to content</a>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <!-- NAV -->
+    <header class="site-header">
+      <nav class="nav" aria-label="Main">
+        <a href="#top" class="logo" aria-label="Nabegh Muhra, back to top">
+          <span class="logo__text">Nabegh Muhra</span>
+        </a>
+        <ul class="nav-links" id="nav-links">
           <li><a href="#about">About</a></li>
           <li><a href="#experience">Experience</a></li>
+          <li><a href="#education">Education</a></li>
           <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li class="nav-links__cta">
+            <a href="#contact" class="nav-cta">Contact</a>
+          </li>
         </ul>
-      </div>
-    </nav>
-    <nav id="hamburger-nav">
-      <div class="logo">Nabegh Muhra</div>
-      <div class="hamburger-menu">
-        <div class="hamburger-icon" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="menu-links">
-          <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-        </div>
-      </div>
-    </nav>
-
-    <!-- PROFILE SECTION -->
-    <section id="profile">
-      <div class="section__pic-container">
-        <img
-          src="./assets/profile-pic.png"
-          alt="Nabegh Muhra profile picture"
-          class="profile-pic"
-        />
-      </div>
-      <div class="section__text">
-        <p class="section__text__p1">Hello, I'm</p>
-        <h1 class="title">Nabegh Muhra</h1>
-        <p class="section__text__p2">Software Developer</p>
-        <div class="btn-container">
+        <div class="nav-right">
           <button
-            class="btn btn-color-2"
-            onclick="window.open('./assets/Nabegh-CV.pdf')"
+            class="theme-toggle"
+            type="button"
+            aria-label="Toggle light and dark mode"
+            onclick="toggleTheme(event)"
           >
-            Download CV
-          </button>
-          <button
-            class="btn btn-color-2"
-            onclick="location.href = './#contact'"
-          >
-            Contact Info
-          </button>
-        </div>
-        <div id="socials-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="My LinkedIn profile"
-            class="icon"
-            onclick="location.href = 'http://linkedin.com/in/nabeghmuhra/'"
-          />
-          <img
-            src="./assets/github.png"
-            alt="My Github profile"
-            class="icon"
-            onclick="location.href = 'https://github.com/'"
-          />
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT SECTION -->
-    <section id="about">
-      <p class="section__text__p1">Get To Know More</p>
-      <h1 class="title">About Me</h1>
-      <div class="section-container">
-        <div class="about-details-container">
-          <div class="about-containers">
-            <div class="details-container">
-              <img
-                src="./assets/experience.png"
-                alt="Experience icon"
-                class="icon"
+            <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path
+                d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
               />
-              <h3>Experience</h3>
-              <p>1+ years <br />Full Stack Development</p>
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+          </button>
+          <a href="#contact" class="nav-cta nav-cta--desktop">Contact</a>
+          <button
+            class="hamburger"
+            type="button"
+            aria-label="Toggle menu"
+            aria-controls="nav-links"
+            aria-expanded="false"
+            onclick="toggleMenu()"
+          >
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <!-- HERO -->
+      <section id="profile" class="hero">
+        <div class="hero__bg" aria-hidden="true"></div>
+
+        <div class="hero__inner container">
+          <div class="hero__text">
+            <h1 class="hero__title reveal">
+              Nabegh<br />
+              <span class="hero__title-accent">Muhra</span>
+            </h1>
+            <p class="hero__role reveal">
+              Software Developer <span class="sep">/</span> Assistant Lecturer
+            </p>
+            <p class="hero__lead reveal">
+              I build cross-platform web and mobile apps with Angular, Ionic and
+              Node.js, currently as a Software Developer at the Chiropractic
+              Association of South Africa. I'm also completing a BScHons in
+              Computer Science at the University of Pretoria.
+            </p>
+            <div class="btn-row reveal">
+              <a
+                class="btn btn-primary"
+                href="./assets/Nabegh-CV.pdf"
+                target="_blank"
+                rel="noopener"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 3v12M7 10l5 5 5-5M5 21h14" />
+                </svg>
+                Download CV
+              </a>
+              <a class="btn btn-secondary" href="#contact">
+                Get in touch
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
             </div>
-            <div class="details-container">
+            <div class="hero__meta reveal">
+              <div class="socials">
+                <a
+                  href="https://www.linkedin.com/in/nabegh-muhra-222446252/"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="LinkedIn"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true" class="fill">
+                    <path
+                      d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="https://github.com/Nmuhra"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="GitHub"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true" class="fill">
+                    <path
+                      d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3"
+                    />
+                  </svg>
+                </a>
+                <a href="mailto:nabeghmuhra1@gmail.com" aria-label="Email">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                    <path d="m22 6-10 7L2 6" />
+                  </svg>
+                </a>
+              </div>
+              <span class="location">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                Pretoria, South Africa
+              </span>
+            </div>
+          </div>
+
+          <div class="hero__visual reveal">
+            <div class="portrait">
+              <div class="portrait__tilt">
+                <div class="portrait__img">
+                  <img
+                    src="./assets/gallery-snow.webp"
+                    srcset="
+                      ./assets/gallery-snow-600.webp 600w,
+                      ./assets/gallery-snow.webp     960w
+                    "
+                    sizes="(max-width: 600px) 200px, (max-width: 900px) 280px, 420px"
+                    alt="Nabegh Muhra giving a peace sign on a snowy mountain slope under a blue sky"
+                    width="960"
+                    height="1280"
+                    fetchpriority="high"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MARQUEE -->
+      <div class="marquee" aria-label="Technologies I work with">
+        <div class="marquee__track">
+          <ul>
+            <li>Angular</li>
+            <li>TypeScript</li>
+            <li>Ionic</li>
+            <li>Capacitor</li>
+            <li>Node.js</li>
+            <li>Express.js</li>
+            <li>React</li>
+            <li>Three.js</li>
+            <li>Supabase</li>
+            <li>Microsoft Azure</li>
+            <li>Python</li>
+            <li>PyTorch</li>
+            <li>C#</li>
+            <li>.NET</li>
+          </ul>
+          <ul aria-hidden="true">
+            <li>Angular</li>
+            <li>TypeScript</li>
+            <li>Ionic</li>
+            <li>Capacitor</li>
+            <li>Node.js</li>
+            <li>Express.js</li>
+            <li>React</li>
+            <li>Three.js</li>
+            <li>Supabase</li>
+            <li>Microsoft Azure</li>
+            <li>Python</li>
+            <li>PyTorch</li>
+            <li>C#</li>
+            <li>.NET</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ABOUT -->
+      <section id="about" class="section container">
+        <div class="section-head reveal">
+          <p class="eyebrow"><span>01</span>About</p>
+          <h2 class="section-title">Get to know me</h2>
+        </div>
+        <div class="about">
+          <div class="about__pic reveal">
+            <div class="about__frame">
               <img
-                src="./assets/education.png"
-                alt="Education icon"
-                class="icon"
+                src="./assets/about-pic.webp"
+                alt="Nabegh reading a book"
+                width="1000"
+                height="1000"
+                loading="lazy"
+                decoding="async"
               />
-              <h3>Education</h3>
-              <p>
-                B.Sc. Bachelors Degree <br />Information & Knowledge Systems
+            </div>
+          </div>
+          <div class="about__body">
+            <p class="about__text about__text--lead reveal">
+              I'm a software developer, Assistant Lecturer at the University of
+              Pretoria, and BScHons Computer Science student. I build and
+              maintain progressive web apps and native Android and iOS
+              deployments across the full stack, and I'm increasingly working
+              with AI, from machine learning to agentic systems.
+            </p>
+            <p class="about__text reveal">
+              Apart from Software Development, I work as an Assistant Lecturer 
+              at the University of Pretoria, I also do private tutoring, and I
+              coach Brazilian Jiu-Jitsu occasionally. I'm fluent in English and
+              Arabic, and outside of code you'll find me on the mats, hiking or
+              rock climbing.
+            </p>
+            <div class="stats">
+              <div class="stat card reveal">
+                <span class="stat__label">Experience</span>
+                <span class="stat__value">~2 <small>years</small></span>
+                <span class="stat__sub">Software development</span>
+              </div>
+              <div class="stat card reveal">
+                <span class="stat__label">Education</span>
+                <span class="stat__value">BScHons</span>
+                <span class="stat__sub">Computer Science, UP</span>
+              </div>
+              <div class="stat card reveal">
+                <span class="stat__label">Teaching</span>
+                <span class="stat__value">1.5+ <small>years</small></span>
+                <span class="stat__sub">TA &amp; lecturer at UP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section id="experience" class="section container">
+        <div class="section-head reveal">
+          <p class="eyebrow"><span>02</span>Experience</p>
+          <h2 class="section-title">Where I've worked</h2>
+        </div>
+        <ol class="timeline">
+          <li class="timeline__item reveal">
+            <div class="timeline__meta">
+              <span class="date">Aug 2026 – Present</span>
+              <span class="badge">Current</span>
+            </div>
+            <div class="timeline__body">
+              <h3 class="role">Assistant Lecturer</h3>
+              <p class="org">University of Pretoria</p>
+              <p class="description">
+                Helping students understand key concepts in information
+                systems, including hardware, software, data management, computer
+                networks and systems analysis. Supporting students through
+                discussions and academic guidance, and assisting with
+                assessments and coursework.
+              </p>
+              <ul class="tags">
+                <li>Information Systems</li>
+                <li>Networks</li>
+                <li>Systems Analysis</li>
+              </ul>
+            </div>
+          </li>
+          <li class="timeline__item reveal">
+            <div class="timeline__meta">
+              <span class="date">Mar 2026 – Present</span>
+              <span class="badge">Current</span>
+            </div>
+            <div class="timeline__body">
+              <h3 class="role">Software Developer</h3>
+              <p class="org">Chiropractic Association of South Africa</p>
+              <p class="description">
+                Maintaining and enhancing a cross-platform ecosystem: an
+                Angular/Ionic progressive web app with native Android and iOS
+                deployments, sharing functionality through Capacitor. Building
+                frontend features and backend integrations with TypeScript,
+                Node.js, Express.js and REST APIs, diagnosing production issues
+                across web and mobile, and serving as the primary technical
+                point of contact for end users.
+              </p>
+              <ul class="tags">
+                <li>Angular</li>
+                <li>Ionic</li>
+                <li>Capacitor</li>
+                <li>TypeScript</li>
+                <li>Node.js</li>
+                <li>Express.js</li>
+              </ul>
+            </div>
+          </li>
+          <li class="timeline__item reveal">
+            <div class="timeline__meta">
+              <span class="date">Sep 2026 – Present</span>
+              <span class="badge">Current</span>
+            </div>
+            <div class="timeline__body">
+              <h3 class="role">Private Tutor</h3>
+              <p class="org">Self-employed</p>
+              <p class="description">
+                Providing one-on-one tutoring tailored to each student's pace
+                and goals, breaking down difficult concepts, working through
+                problems together and helping students prepare for assessments.
               </p>
             </div>
-          </div>
-          <div class="text-container">
-            <p>
-              Driven Junior Software Developer building cross-platform apps with
-              Angular and Node.js. I'm a passionate problem-solver, currently
-              tutoring while completing my degree in Information Systems. Fluent
-              in English and Arabic, with a love for strategic challenges like
-              chess and Brazilian Jiu-Jitsu.
-            </p>
-          </div>
+          </li>
+          <li class="timeline__item reveal">
+            <div class="timeline__meta">
+              <span class="date">Feb 2025 – Jun 2026</span>
+            </div>
+            <div class="timeline__body">
+              <h3 class="role">Teaching Assistant</h3>
+              <p class="org">University of Pretoria</p>
+              <p class="description">
+                Supported first- and second-year Informatics modules in
+                foundational C# programming, computer networks and Excel.
+                Provided hands-on guidance during lectures, practicals and
+                one-on-one consultations, facilitated tutorial sessions, and
+                evaluated assignments and semester assessments with
+                constructive feedback.
+              </p>
+              <ul class="tags">
+                <li>C#</li>
+                <li>Networks</li>
+                <li>Excel</li>
+              </ul>
+            </div>
+          </li>
+          <li class="timeline__item reveal">
+            <div class="timeline__meta">
+              <span class="date">Jan 2025 – Feb 2026</span>
+            </div>
+            <div class="timeline__body">
+              <h3 class="role">Software Developer</h3>
+              <p class="org">SmartMob</p>
+              <p class="description">
+                Developed and maintained Angular/Ionic applications deployed
+                across web, Android and iOS, implementing frontend features,
+                REST APIs, authentication and backend integrations.
+              </p>
+              <ul class="tags">
+                <li>Angular</li>
+                <li>Ionic</li>
+                <li>REST APIs</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- EDUCATION + SKILLS -->
+      <section id="education" class="section container">
+        <div class="section-head reveal">
+          <p class="eyebrow"><span>03</span>Education &amp; Skills</p>
+          <h2 class="section-title">What I've learned</h2>
         </div>
-        <div class="section__pic-container">
-          <img
-            src="./assets/about-pic.png"
-            alt="Profile picture"
-            class="about-pic"
-          />
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href = './#experience'"
-      />
-    </section>
-
-    <!-- EXPERIENCE SECTION -->
-    <section id="experience">
-      <p class="section__text__p1">Explore My</p>
-      <h1 class="title">Experience & Education</h1>
-
-      <div class="experience-details-container experience-wrapper">
-        <!-- Work Experience -->
-        <div>
-          <h2 class="subsection-title">Work Experience</h2>
-          <div class="about-containers">
-            <div class="details-container">
-              <div class="experience-item">
-                <div class="experience-header">
-                  <div>
-                    <div class="job-title">Junior Software Developer</div>
-                    <div class="company">SmartMob</div>
-                  </div>
-                  <div class="date">Jan 2025 - Feb 2026</div>
-                </div>
-                <p class="description">
-                  Developed and supported progressive web apps and mobile
-                  applications using Angular, Ionic, and Node.js, leveraging
-                  Capacitor for cross-platform functionality. Collaborated on
-                  full-stack development projects, applying problem-solving and
-                  strategic thinking to deliver user-focused solutions.
-                </p>
+        <div class="edu-skills">
+          <ol class="timeline timeline--compact">
+            <li class="timeline__item reveal">
+              <div class="timeline__meta">
+                <span class="date">2026 – Present</span>
+                <span class="badge">Current</span>
               </div>
-
-              <div class="experience-item">
-                <div class="experience-header">
-                  <div>
-                    <div class="job-title">Academic Tutor</div>
-                    <div class="company">University of Pretoria</div>
-                  </div>
-                  <div class="date">Feb 2025 - Nov 2025</div>
-                </div>
-                <p class="description">
-                  Tutored first-year students in foundational programming and
-                  information systems courses, delivering engaging practical
-                  sessions, providing hands-on support with practical
-                  assignments, and evaluating coursework.
-                </p>
+              <div class="timeline__body">
+                <h3 class="role">BScHons Computer Science</h3>
+                <p class="org">University of Pretoria</p>
               </div>
-
-              <div class="experience-item">
-                <div class="experience-header">
-                  <div>
-                    <div class="job-title">Academic Tutor</div>
-                    <div class="company">University of Pretoria</div>
-                  </div>
-                  <div class="date">Feb 2026 - Jun 2026</div>
-                </div>
-                <p class="description">
-                  Tutoring second-year Informatics students in INF 264, a module
-                  focused on Microsoft Excel, covering data analysis, formulas,
-                  and spreadsheet design, providing hands-on support during
-                  practical sessions and evaluating coursework.
-                </p>
+            </li>
+            <li class="timeline__item reveal">
+              <div class="timeline__meta">
+                <span class="date">2023 – 2025</span>
               </div>
+              <div class="timeline__body">
+                <h3 class="role">BSc Information &amp; Knowledge Systems</h3>
+                <p class="org">University of Pretoria</p>
+              </div>
+            </li>
+            <li class="timeline__item reveal">
+              <div class="timeline__meta">
+                <span class="date">2018 – 2022</span>
+              </div>
+              <div class="timeline__body">
+                <h3 class="role">High School Diploma (NCSCOS)</h3>
+                <p class="org">North American International School, Pretoria</p>
+
+              </div>
+            </li>
+          </ol>
+
+          <div class="skills">
+            <div class="skill-group card reveal">
+              <h3 class="skill-group__title">Languages</h3>
+              <ul class="chips">
+                <li>JavaScript</li>
+                <li>TypeScript</li>
+                <li>Python</li>
+                <li>C#</li>
+                <li>C++</li>
+                <li>Java</li>
+              </ul>
+            </div>
+            <div class="skill-group card reveal">
+              <h3 class="skill-group__title">Frontend</h3>
+              <ul class="chips">
+                <li>Angular</li>
+                <li>React</li>
+                <li>Vue</li>
+                <li>Ionic</li>
+                <li>Three.js</li>
+              </ul>
+            </div>
+            <div class="skill-group card reveal">
+              <h3 class="skill-group__title">Backend</h3>
+              <ul class="chips">
+                <li>Node.js</li>
+                <li>Express.js</li>
+                <li>Next.js</li>
+                <li>.NET</li>
+              </ul>
+            </div>
+            <div class="skill-group card reveal">
+              <h3 class="skill-group__title">Cloud &amp; DevOps</h3>
+              <ul class="chips">
+                <li>Microsoft Azure</li>
+                <li>Git</li>
+                <li>Supabase</li>
+                <li>Vercel</li>
+                <li>Railway</li>
+              </ul>
+            </div>
+            <div class="skill-group skill-group--ai card reveal">
+              <div class="skill-group__main">
+                <h3 class="skill-group__title">Artificial Intelligence</h3>
+                <ul class="chips">
+                  <li>PyTorch</li>
+                  <li>TensorFlow</li>
+                  <li>Agentic AI</li>
+                  <li>Deep Learning</li>
+                </ul>
+              </div>
+              <svg
+                class="neural-net"
+                viewBox="0 0 320 170"
+                preserveAspectRatio="xMidYMid meet"
+                aria-hidden="true"
+                focusable="false"
+              ></svg>
             </div>
           </div>
         </div>
+      </section>
 
-        <!-- Education -->
-        <div>
-          <h2 class="subsection-title">Education</h2>
-          <div class="about-containers">
-            <div class="details-container">
-              <div class="experience-item">
-                <div class="experience-header">
-                  <div>
-                    <div class="job-title">
-                      BSc in Information & Knowledge Systems
-                    </div>
-                    <div class="company">University of Pretoria</div>
-                  </div>
-                  <div class="date">Feb 2023 - Nov 2025</div>
-                </div>
-              </div>
-
-              <div class="experience-item">
-                <div class="experience-header">
-                  <div>
-                    <div class="job-title">High School Diploma</div>
-                    <div class="company">
-                      North American International School, Pretoria
-                    </div>
-                  </div>
-                  <div class="date">Aug 2018 - Jun 2022</div>
-                </div>
-                <p class="description">
-                  High honours in Academic studies: Grade 11 & 12<br />
-                  Honours in Academic studies: Grade 10
-                </p>
-              </div>
-            </div>
-          </div>
+      <!-- PROJECTS -->
+      <section id="projects" class="section container">
+        <div class="section-head reveal">
+          <p class="eyebrow"><span>04</span>Projects</p>
+          <h2 class="section-title">Things I've built</h2>
         </div>
-
-        <!-- Technical Skills -->
-        <div>
-          <h2 class="subsection-title">Technical Skills</h2>
-          <div class="about-containers">
-            <div class="details-container">
-              <h2 class="experience-sub-title">Frontend Development</h2>
-              <div class="article-container">
-                <article>
-                  <img
-                    src="./assets/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>Angular</h3>
-                    <p>Experienced</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src="./assets/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>React</h3>
-                    <p>Experienced</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src="./assets/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>JavaScript</h3>
-                    <p>Experienced</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src="./assets/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>TypeScript</h3>
-                    <p>Experienced</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src="./assets/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>Ionic</h3>
-                    <p>Experienced</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src="./assets/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>Three.js</h3>
-                    <p>Experienced</p>
-                  </div>
-                </article>
-              </div>
-            </div>
-
-            <div class="details-container">
-              <h2 class="experience-sub-title">Backend Development</h2>
-              <div class="article-container">
-                <article>
-                  <img
-                    src="./assets/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>Node.js</h3>
-                    <p>Experienced</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src="./assets/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>Express.js</h3>
-                    <p>Experienced</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src="./assets/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>C#</h3>
-                    <p>Experienced</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src="./assets/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>.NET</h3>
-                    <p>Experienced</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src="./assets/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>Git/GitHub</h3>
-                    <p>Experienced</p>
-                  </div>
-                </article>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href = './#projects'"
-      />
-    </section>
-
-    <!-- PROJECTS SECTION -->
-    <section id="projects">
-      <p class="section__text__p1">Browse My Recent</p>
-      <h1 class="title">Projects</h1>
-
-      <div class="experience-details-container">
-        <div class="about-containers projects-grid">
-          <div class="details-container color-container">
-            <h2 class="experience-sub-title project-title">Portfolio Portal</h2>
-            <p
-              style="
-                text-align: center;
-                margin: 1rem 2rem;
-                color: rgb(85, 85, 85);
-              "
+        <div class="projects">
+          <article class="project card reveal">
+            <a
+              class="project__media"
+              href="https://github.com/COS301-SE-2025/Portfolio-Portal"
+              target="_blank"
+              rel="noopener"
+              tabindex="-1"
+              aria-hidden="true"
             >
-              A platform that generates personalized portfolio websites
-              automatically from uploaded CVs and user profile data. Includes
-              template selection, dynamic content parsing, and a deployed live
-              preview environment.
-            </p>
-            <div class="article-container">
               <img
-                src="./assets/capstone.jpeg"
-                alt="Portfolio Portal"
-                class="project-img"
+                src="./assets/capstone-team.webp"
+                alt=""
+                width="1200"
+                height="900"
+                loading="lazy"
+                decoding="async"
               />
-            </div>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="
-                  location.href =
-                    'https://github.com/COS301-SE-2025/Portfolio-Portal'
-                "
+              <span class="project__open">
+                <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" /></svg>
+              </span>
+            </a>
+            <div class="project__body">
+              <p class="project__kicker">Capstone project · EPI-USE</p>
+              <h3 class="project__title">Portfolio Portal</h3>
+              <p class="project__desc">
+                A full-stack platform that extracts CV information using OCR and
+                AI, then generates personalised 3D portfolio websites, with
+                multiple interactive 3D environments and automated CV data
+                processing.
+              </p>
+              <ul class="tags">
+                <li>React</li>
+                <li>Vite</li>
+                <li>Node.js</li>
+                <li>Supabase</li>
+                <li>Three.js</li>
+              </ul>
+              <a
+                class="project__link"
+                href="https://github.com/COS301-SE-2025/Portfolio-Portal"
+                target="_blank"
+                rel="noopener"
               >
-                Github
-              </button>
+                View on GitHub
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M8 7h9v9" />
+                </svg>
+              </a>
             </div>
-          </div>
+          </article>
 
-          <div class="details-container color-container">
-            <h2 class="experience-sub-title project-title">PetPaws</h2>
-            <span class="coming-soon-badge">Coming Soon</span>
-            <p
-              style="
-                text-align: center;
-                margin: 1rem 2rem;
-                color: rgb(85, 85, 85);
-              "
+          <article class="project card reveal">
+            <a
+              class="project__media project__media--browser"
+              href="https://cozypaw.co.za"
+              target="_blank"
+              rel="noopener"
+              tabindex="-1"
+              aria-hidden="true"
             >
-              A pet-sitting website connecting pet owners with trusted sitters.
-              Designed to make booking pet care simple, safe, and stress-free
-              for both owners and sitters.
-            </p>
+              <span class="browser-bar">
+                <span class="browser-bar__dots"><i></i><i></i><i></i></span>
+                <span class="browser-bar__url">cozypaw.co.za</span>
+              </span>
+              <img
+                src="./assets/cozypaw-hero.webp"
+                alt=""
+                width="1200"
+                height="750"
+                loading="lazy"
+                decoding="async"
+              />
+              <span class="project__open">
+                <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" /></svg>
+              </span>
+            </a>
+            <div class="project__body">
+              <p class="project__kicker">Live site · Pet-sitting business</p>
+              <h3 class="project__title">CozyPaw</h3>
+              <p class="project__desc">
+                A fast, framework-free site for a Pretoria pet-sitting service.
+                Clients can check service areas on an embedded map, step through
+                how a booking works, and send a request through a form that
+                opens WhatsApp with their message already written. Structured
+                data and Open Graph tags help it show up well in search and when
+                shared.
+              </p>
+              <ul class="shots">
+                <li>
+                  <button
+                    class="shots__btn"
+                    type="button"
+                    data-lightbox="cozypaw"
+                    data-full="./assets/cozypaw-map.webp"
+                    data-title="Service areas"
+                    data-sub="CozyPaw"
+                    aria-label="View larger: Service areas"
+                  >
+                    <img
+                      src="./assets/cozypaw-map-thumb.webp"
+                      alt="CozyPaw service areas section with suburb chips and an OpenStreetMap map of Pretoria East and Centurion"
+                      width="480"
+                      height="275"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <span class="shots__label">Service areas</span>
+                </li>
+                <li>
+                  <button
+                    class="shots__btn"
+                    type="button"
+                    data-lightbox="cozypaw"
+                    data-full="./assets/cozypaw-booking.webp"
+                    data-title="Booking walkthrough"
+                    data-sub="CozyPaw"
+                    aria-label="View larger: Booking walkthrough"
+                  >
+                    <img
+                      src="./assets/cozypaw-booking-thumb.webp"
+                      alt="CozyPaw interactive four-step booking process"
+                      width="480"
+                      height="288"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <span class="shots__label">Booking walkthrough</span>
+                </li>
+                <li>
+                  <button
+                    class="shots__btn"
+                    type="button"
+                    data-lightbox="cozypaw"
+                    data-full="./assets/cozypaw-contact.webp"
+                    data-title="WhatsApp booking form"
+                    data-sub="CozyPaw"
+                    aria-label="View larger: WhatsApp booking form"
+                  >
+                    <img
+                      src="./assets/cozypaw-contact-thumb.webp"
+                      alt="CozyPaw contact section with a booking request form that sends via WhatsApp"
+                      width="480"
+                      height="315"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <span class="shots__label">WhatsApp booking form</span>
+                </li>
+              </ul>
+              <ul class="tags">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>OpenStreetMap</li>
+                <li>JSON-LD</li>
+              </ul>
+              <a
+                class="project__link"
+                href="https://cozypaw.co.za"
+                target="_blank"
+                rel="noopener"
+              >
+                Visit cozypaw.co.za
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M8 7h9v9" />
+                </svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
 
-            <div class="article-container">
-              <div class="project-placeholder">
-                <img
-                  src="./assets/pets.jpeg"
-                  alt="PetPaws"
-                  class="project-img"
-                />
-              </div>
+      <!-- VOLUNTEERING -->
+      <section id="volunteering" class="section container">
+        <div class="section-head reveal">
+          <p class="eyebrow"><span>05</span>Volunteering &amp; Interests</p>
+          <h2 class="section-title">Beyond the code</h2>
+        </div>
+        <div class="gallery">
+          <figure class="gallery__item gallery__item--wide reveal">
+            <button
+              class="gallery__btn"
+              type="button"
+              data-lightbox="gallery"
+              aria-label="View larger: Match at Enigma"
+            >
+              <img
+                src="./assets/gallery-bjj-hands.webp"
+                style="--pos: 50% 30%"
+                alt="Match at Enigma"
+                width="1600"
+                height="1067"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+            <figcaption class="gallery__caption">
+              <span class="gallery__title">Match at Enigma</span>
+              <span class="gallery__sub">Brazilian Jiu-Jitsu</span>
+            </figcaption>
+          </figure>
+          <figure class="gallery__item gallery__item--wide reveal">
+            <button
+              class="gallery__btn"
+              type="button"
+              data-lightbox="gallery"
+              aria-label="View larger: Golden hour on the trail"
+            >
+              <img
+                src="./assets/gallery-sunset.webp"
+                style="--pos: 50% 70%"
+                alt="Nabegh standing on a mountain plateau at sunset"
+                width="1280"
+                height="960"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+            <figcaption class="gallery__caption">
+              <span class="gallery__title">Golden hour on the trail</span>
+              <span class="gallery__sub">Hiking</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="beyond">
+          <article class="beyond__card card reveal">
+            <div class="beyond__top">
+              <span class="beyond__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </span>
+              <span class="date">2024 – Present</span>
+              <span class="badge">Current</span>
             </div>
-            <div class="btn-container">
-              <button class="btn btn-color-2 project-btn" disabled>
-                In Progress
-              </button>
+            <h3 class="role">Jiu-Jitsu Coach</h3>
+            <p class="description">
+              Delivering foundational Brazilian Jiu-Jitsu classes, guiding
+              students through core techniques in a welcoming training
+              environment.
+            </p>
+          </article>
+          <article class="beyond__card card reveal">
+            <div class="beyond__top">
+              <span class="beyond__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <rect x="2" y="4" width="20" height="13" rx="2" />
+                  <path d="M8 21h8M12 17v4" />
+                </svg>
+              </span>
+              <span class="date">2024</span>
             </div>
+            <h3 class="role">Keep That Gold Shining</h3>
+            <p class="description">
+              Designed and delivered a foundational computer literacy course to
+              learners at a school in an under-reFsourced community.
+            </p>
+          </article>
+          <article class="beyond__card card reveal">
+            <div class="beyond__top">
+              <span class="beyond__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
+                </svg>
+              </span>
+              <span class="date">Off the clock</span>
+            </div>
+            <h3 class="role">Hobbies &amp; Interests</h3>
+            <ul class="chips">
+              <li>Brazilian Jiu-Jitsu</li>
+              <li>Hiking</li>
+              <li>Rock Climbing</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="section container">
+        <div class="contact card reveal">
+          <div class="contact__bg" aria-hidden="true"></div>
+          <p class="eyebrow eyebrow--center"><span>06</span>Contact</p>
+          <h2 class="contact__title">Let's build something together</h2>
+          <p class="contact__lead">
+            Have a project, role or opportunity in mind? My inbox is always
+            open.
+          </p>
+          <div class="email-box">
+            <a class="email-box__addr" href="mailto:nabeghmuhra1@gmail.com"
+              >nabeghmuhra1@gmail.com</a
+            >
+            <button
+              class="email-box__copy"
+              type="button"
+              data-copy="nabeghmuhra1@gmail.com"
+              aria-label="Copy email address"
+            >
+              <svg class="icon-copy" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="9" y="9" width="12" height="12" rx="2" />
+                <path d="M5 15V5a2 2 0 0 1 2-2h10" />
+              </svg>
+              <svg class="icon-check" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+              <span class="email-box__label">Copy</span>
+            </button>
+          </div>
+          <div class="btn-row btn-row--center">
+            <a class="btn btn-primary" href="mailto:nabeghmuhra1@gmail.com">
+              Send an email
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+            <a
+              class="btn btn-secondary"
+              href="https://www.linkedin.com/in/nabegh-muhra-222446252/"
+              target="_blank"
+              rel="noopener"
+              >LinkedIn</a
+            >
+            <a
+              class="btn btn-secondary"
+              href="https://github.com/Nmuhra"
+              target="_blank"
+              rel="noopener"
+              >GitHub</a
+            >
           </div>
         </div>
+      </section>
+    </main>
+
+    <footer class="footer container">
+      <div class="footer__left">
+        <p>&copy; <span id="year">2026</span> Nabegh Muhra</p>
       </div>
-
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href = './#contact'"
-      />
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section id="contact">
-      <p class="section__text__p1">Get in Touch</p>
-      <h1 class="title">Contact Me</h1>
-      <div class="contact-info-upper-container">
-        <div class="contact-info-container">
-          <img
-            src="./assets/email.png"
-            alt="Email icon"
-            class="icon contact-icon email-icon"
-          />
-          <p>
-            <a href="mailto:nabeghmuhra1@gmail.com">nabeghmuhra1@gmail.com</a>
-          </p>
-        </div>
-        <div class="contact-info-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="LinkedIn icon"
-            class="icon contact-icon"
-          />
-          <p><a href="http://linkedin.com/in/nabeghmuhra/">LinkedIn</a></p>
-        </div>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-      <p>Copyright &#169; 2025 Nabegh Muhra. All Rights Reserved.</p>
+      <a href="#top" class="footer__top">
+        Back to top
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 19V5M6 11l6-6 6 6" />
+        </svg>
+      </a>
     </footer>
+
+    <dialog class="lightbox" aria-label="Photo viewer">
+      <figure class="lightbox__figure">
+        <img class="lightbox__img" src="" alt="" />
+        <figcaption class="lightbox__caption">
+          <span class="gallery__title"></span>
+          <span class="gallery__sub"></span>
+        </figcaption>
+      </figure>
+      <button class="lightbox__btn lightbox__close" type="button" aria-label="Close">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12" /></svg>
+      </button>
+      <button class="lightbox__btn lightbox__prev" type="button" aria-label="Previous photo">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
+      </button>
+      <button class="lightbox__btn lightbox__next" type="button" aria-label="Next photo">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
+      </button>
+      <span class="lightbox__count" aria-hidden="true"></span>
+    </dialog>
+
+    <div class="toast" role="status" aria-live="polite"></div>
 
     <script src="script.js"></script>
   </body>
