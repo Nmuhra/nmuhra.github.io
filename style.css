@@ -18,7 +18,7 @@
   --sheen: rgba(255, 255, 255, 0.025);
   --spot: rgba(255, 255, 255, 0.04);
   --light: rgba(255, 255, 255, 0.06);
-  --grain-opacity: 0.045;
+  --grain-opacity: 0.1;
   --header-bg: rgba(12, 12, 14, 0.7);
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px -12px rgba(0, 0, 0, 0.6);
   --shadow-lg: 0 2px 4px rgba(0, 0, 0, 0.3), 0 32px 64px -24px rgba(0, 0, 0, 0.75);
@@ -49,7 +49,7 @@
   --sheen: rgba(255, 255, 255, 0.6);
   --spot: rgba(17, 17, 19, 0.03);
   --light: rgba(255, 255, 255, 0.9);
-  --grain-opacity: 0.035;
+  --grain-opacity: 0.075;
   --header-bg: rgba(250, 250, 249, 0.72);
   --shadow: 0 1px 2px rgba(17, 17, 19, 0.04), 0 8px 24px -12px rgba(17, 17, 19, 0.1);
   --shadow-lg: 0 2px 4px rgba(17, 17, 19, 0.03), 0 32px 64px -28px rgba(17, 17, 19, 0.22);
