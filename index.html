@@ -521,18 +521,22 @@
         <div class="projects">
           <article class="project card reveal">
             <a
-              class="project__media"
-              href="https://github.com/COS301-SE-2025/Portfolio-Portal"
+              class="project__media project__media--browser"
+              href="https://www.flowjiujitsu.co.za"
               target="_blank"
               rel="noopener"
               tabindex="-1"
               aria-hidden="true"
             >
+              <span class="browser-bar">
+                <span class="browser-bar__dots"><i></i><i></i><i></i></span>
+                <span class="browser-bar__url">flowjiujitsu.co.za</span>
+              </span>
               <img
-                src="./assets/capstone-team.webp"
+                src="./assets/flow-hero.webp"
                 alt=""
                 width="1200"
-                height="900"
+                height="630"
                 loading="lazy"
                 decoding="async"
               />
@@ -541,28 +545,95 @@
               </span>
             </a>
             <div class="project__body">
-              <p class="project__kicker">Capstone project · EPI-USE</p>
-              <h3 class="project__title">Portfolio Portal</h3>
+              <p class="project__kicker">Live site · Jiu-Jitsu academy</p>
+              <h3 class="project__title">Flow Jiu-Jitsu</h3>
               <p class="project__desc">
-                A full-stack platform that extracts CV information using OCR and
-                AI, then generates personalised 3D portfolio websites, with
-                multiple interactive 3D environments and automated CV data
-                processing.
+                A framework-free site for a Brazilian Jiu-Jitsu and No-Gi
+                academy in Lynnwood Ridge, Pretoria. A looping training video
+                opens the page, the weekly schedule highlights today and the
+                next class, and visitors can browse the gym's photos, compare
+                memberships and find the gym on an embedded map, with a light
+                and dark theme throughout.
               </p>
+              <ul class="shots">
+                <li>
+                  <button
+                    class="shots__btn"
+                    type="button"
+                    data-lightbox="flow"
+                    data-full="./assets/flow-classes.webp"
+                    data-title="Classes"
+                    data-sub="Flow Jiu-Jitsu"
+                    aria-label="View larger: Classes"
+                  >
+                    <img
+                      src="./assets/flow-classes-thumb.webp"
+                      alt="Flow Jiu-Jitsu classes section with photo cards for adults, kids, open mat and competition classes"
+                      width="480"
+                      height="425"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <span class="shots__label">Classes</span>
+                </li>
+                <li>
+                  <button
+                    class="shots__btn"
+                    type="button"
+                    data-lightbox="flow"
+                    data-full="./assets/flow-schedule.webp"
+                    data-title="Weekly schedule"
+                    data-sub="Flow Jiu-Jitsu"
+                    aria-label="View larger: Weekly schedule"
+                  >
+                    <img
+                      src="./assets/flow-schedule-thumb.webp"
+                      alt="Flow Jiu-Jitsu weekly class schedule with today and the next class highlighted"
+                      width="480"
+                      height="223"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <span class="shots__label">Weekly schedule</span>
+                </li>
+                <li>
+                  <button
+                    class="shots__btn"
+                    type="button"
+                    data-lightbox="flow"
+                    data-full="./assets/flow-contact.webp"
+                    data-title="Contact and map"
+                    data-sub="Flow Jiu-Jitsu"
+                    aria-label="View larger: Contact and map"
+                  >
+                    <img
+                      src="./assets/flow-contact-thumb.webp"
+                      alt="Flow Jiu-Jitsu contact details next to an embedded Google Map of the gym"
+                      width="480"
+                      height="224"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <span class="shots__label">Contact and map</span>
+                </li>
+              </ul>
               <ul class="tags">
-                <li>React</li>
-                <li>Vite</li>
-                <li>Node.js</li>
-                <li>Supabase</li>
-                <li>Three.js</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Google Maps</li>
+                <li>JSON-LD</li>
               </ul>
               <a
                 class="project__link"
-                href="https://github.com/COS301-SE-2025/Portfolio-Portal"
+                href="https://www.flowjiujitsu.co.za"
                 target="_blank"
                 rel="noopener"
               >
-                View on GitHub
+                Visit flowjiujitsu.co.za
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M7 17 17 7M8 7h9v9" />
                 </svg>
@@ -685,6 +756,57 @@
                 rel="noopener"
               >
                 Visit cozypaw.co.za
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M8 7h9v9" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="project card reveal">
+            <a
+              class="project__media"
+              href="https://github.com/COS301-SE-2025/Portfolio-Portal"
+              target="_blank"
+              rel="noopener"
+              tabindex="-1"
+              aria-hidden="true"
+            >
+              <img
+                src="./assets/capstone-team.webp"
+                alt=""
+                width="1200"
+                height="900"
+                loading="lazy"
+                decoding="async"
+              />
+              <span class="project__open">
+                <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" /></svg>
+              </span>
+            </a>
+            <div class="project__body">
+              <p class="project__kicker">Capstone project · EPI-USE</p>
+              <h3 class="project__title">Portfolio Portal</h3>
+              <p class="project__desc">
+                A full-stack platform that extracts CV information using OCR and
+                AI, then generates personalised 3D portfolio websites, with
+                multiple interactive 3D environments and automated CV data
+                processing.
+              </p>
+              <ul class="tags">
+                <li>React</li>
+                <li>Vite</li>
+                <li>Node.js</li>
+                <li>Supabase</li>
+                <li>Three.js</li>
+              </ul>
+              <a
+                class="project__link"
+                href="https://github.com/COS301-SE-2025/Portfolio-Portal"
+                target="_blank"
+                rel="noopener"
+              >
+                View on GitHub
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M7 17 17 7M8 7h9v9" />
                 </svg>
