@@ -16,17 +16,12 @@
       property="og:description"
       content="Software developer, Assistant Lecturer and BScHons Computer Science student at the University of Pretoria."
     />
-    <meta property="og:image" content="./assets/hero.jpg" />
+    <meta property="og:image" content="https://nmuhra.github.io/assets/hero.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&family=Geist+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preload" as="font" type="font/woff2" href="./assets/fonts/geist.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="./assets/fonts/geist-mono.woff2" crossorigin />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="mediaqueries.css" />
     <link rel="icon" type="image/png" href="./assets/favicon-light.png" />
     <link
       rel="icon"
@@ -34,7 +29,7 @@
       href="./assets/favicon-dark.png"
       media="(prefers-color-scheme: dark)"
     />
-    <link rel="preload" as="image" href="./assets/hero.jpg" />
+    <link rel="preload" as="image" type="image/webp" href="./assets/hero.webp" />
     <script>
       document.documentElement.classList.add("js");
       (function () {
@@ -190,10 +185,10 @@
               <div class="portrait__tilt">
                 <div class="portrait__img">
                   <img
-                    src="./assets/hero.jpg"
+                    src="./assets/hero.webp"
                     alt="Nabegh Muhra giving a peace sign on a snowy mountain slope under a blue sky"
-                    width="1069"
-                    height="1474"
+                    width="840"
+                    height="1159"
                     fetchpriority="high"
                   />
                 </div>
